@@ -1,5 +1,5 @@
 ---
-title: DataStax Enterprise Cassandra (BETA)
+title: DataStax Enterprise Cassandra (BETA) Configuration
 owner: Dublin Services
 ---
 
@@ -19,7 +19,7 @@ All the fields on the configuration page are mandatory:
 * Admin username
 * Admin password
 
-The admin credentials would be used to create a user for each of the bound applications. 
+The admin credentials would be used for managing users in order to bind and unbind CF applications. 
 
 ![Image of OpsManager Cassandra Cluster Configuration](cluster-settings.png)
 

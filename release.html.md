@@ -1,5 +1,5 @@
 ---
-title: DataStax Enterprise Cassandra (BETA)
+title: DataStax Enterprise Cassandra (BETA) Release Notes
 owner: Dublin Services
 ---
 
