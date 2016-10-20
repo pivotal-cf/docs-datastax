@@ -13,6 +13,7 @@ This is documentation for the DataStax Enterprise Cassandra service for Pivotal 
 <dd><strong>Release Date</strong>: 14th October 2016</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x - 1.8.x</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.6.x - 1.8.x</dd>
+<dd><strong>Go Buildpack Version(s)</strong>: 1.7.9 and above</dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>AWS support?</strong> Yes</dd>
 <dd><strong>OpenStack support?</strong> Yes</dd>
