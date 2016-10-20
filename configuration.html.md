@@ -12,7 +12,7 @@ requires to configure the connection to an existing Cassandra Cluster.
 
 The product requires an external DataStax Enterprise Cassandra cluster.
 
-All the fields on the configuration page are mandatory:
+The following fields on the configuration page are mandatory:
 
 * IP Address
 * Port - specify a setting different from the default value of 9042
@@ -20,6 +20,9 @@ All the fields on the configuration page are mandatory:
 * Admin password
 
 The admin credentials would be used for managing users in order to bind and unbind CF applications. 
+
+Optionally, a role that would be assigned to the bound application credentials can also
+ be specified. If unset, the credentials would not get any role assigned.
 
 ![Image of OpsManager Cassandra Cluster Configuration](cluster-settings.png)
 
