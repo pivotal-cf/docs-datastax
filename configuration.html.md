@@ -3,19 +3,22 @@ title: DataStax Enterprise Cassandra (BETA) Configuration
 owner: Dublin Services
 ---
 
-## DataStax Enterprise Cassandra Configuration
+To configure Datastax Enterprise Cassandra, navigate to the tile in the Ops Manager Installation Dashboard and click the **Settings** tab.
 
-In addition to the standard service tile settings, the DataStax Enterprise Cassandra tile
-requires to configure the connection to an existing Cassandra Cluster.
+You can configure following items:
+
+## Service Settings
+
+Here you can change service name in CF CLI and ApsManager and also change service description
+![Image of OpsManager Cassandra Service Access Configuration](service-settings.png)
 
 ## Cassandra Cluster Settings
 
 The product requires an external DataStax Enterprise Cassandra cluster.
-
 The following fields on the configuration page are mandatory:
 
 * IP Address
-* Port - specify a setting different from the default value of 9042
+* Port - you can specify a setting different from the default value of 9042
 * Admin username
 * Admin password
 
@@ -30,3 +33,10 @@ Optionally, a role can be configured for each plan. That role would be assigned 
 If unset, the credentials would not get any role assigned.
 
 ![Image of OpsManager Cassandra Service plans Configuration](service-plans-settings.png)
+
+## Service Access
+
+By default all service plans for the service are private. You can check "Enable global access to plans of service DataStax Enterprise Cassandra (BETA) 
+Save"
+
+![Image of OpsManager Cassandra Service Access Configuration](service-access-settings.png)
