@@ -3,18 +3,18 @@
   ".": 
 :production_host: hello
 :subnav_templates:
-  myservice: myservice_subnav
+  datastax: datastax_subnav
 :template_variables: 
-:local_repo_dir: "/Users/pspinrad/workspace/docs-partners-template"
+:local_repo_dir: "/Users/pspinrad/workspace/docs-datastax"
 :workspace: !ruby/object:Pathname
-  path: "/Users/pspinrad/workspace/docs-partners-template/docs-book/output/master_middleman/source"
+  path: "/Users/pspinrad/workspace/docs-datastax/docs-book/output/master_middleman/source"
 :feedback_enabled: 
 :repo_link_enabled: true
 :repo_links:
-  myservice:
+  datastax:
     repo: docs-content
     ref: master
     at_path: 
 :product_info:
-  myservice: {}
+  datastax: {}
 :elastic_search: false
