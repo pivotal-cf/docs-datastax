@@ -1,59 +1,46 @@
 ---
-title: YOUR-PRODUCT-NAME
+title: DataStax Enterprise Cassandra for PCF (BETA)
 owner: Partners
 ---
 
-**This topic should begin with a brief description of your product. See below for an example.**
-
-This documentation describes the Redis Labs Enterprise Cluster (RLEC) Service Broker for Pivotal Cloud Foundry (PCF). 
-The RLEC Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace. 
-Developers can provision Redis databases by creating instances of the service plans using Apps Manager or the cf CLI.
-
-## <a id='overview'></a>Overview
-
-**The overview should provide a description of the product's key features.**
-
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one.
-* Feature two.
-* Feature three.
+This is documentation describes the DataStax Enterprise Cassandra service for Pivotal Cloud Foundry.
 
 ## <a id="snapshot"></a>Product Snapshot
 
 <dl>
-<dt>YOUR-PRODUCT-NAME details:</dt>
-<dd><strong>Version</strong>: vYOUR-VERSION-NUMBER </dd>
-<dd><strong>Release date</strong>: YOUR-RELEASE-DATE (Ex: August 1 2016)</dd>
-<dd><strong>Software component version</strong>: vYOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</dd>
-<dd><strong>Compatible Ops Manager version(s)</strong>: vYOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. v1.6.x, v1.7.x)</dd>
-<dd><strong>Compatible Elastic Runtime version(s)</strong>: vYOUR-COMPATIBLE-ELASTIC-RUNTIME-VERSION (Ex. v1.4.x, v1.5.x, v1.6.x)</dd>
-<dd><strong>vSphere support?</strong> YES-OR-NO</dd>
-<dd><strong>OpenStack support?</strong> YES-OR-NO</dd>
-<dd><strong>AWS support?</strong> YES-OR-NO</dd>
+<dt>Current DataStax Enterprise Cassandra for PCF Details</dt>
+<dd><strong>Version</strong>: 0.2.1 </dd>
+<dd><strong>Release Date</strong>: 15th January 2016</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x - 1.8.x</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.6.x - 1.8.x</dd>
+<dd><strong>Go Buildpack Version(s)</strong>: 1.7.9 and above</dd>
+<dd><strong>vSphere support?</strong> Yes</dd>
+<dd><strong>AWS support?</strong> Yes</dd>
+<dd><strong>OpenStack support?</strong> Yes</dd>
 </dl>
+
+## Install via Pivotal Operations Manager
+
+To install DataStax Enterprise Cassandra for Pivotal Cloud Foundry, follow the procedure for installing Pivotal Ops Manager tiles:
+
+1. Download the product file from Pivotal Network.
+1. Upload the product file to your Ops Manager installation.
+1. Click **Add** next to the uploaded product description in the Available Products view to add this product to your staging area.
+1. Click the newly added tile
+1. Click **Apply Changes** to install the service.
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+DataStax Enterprise Cassandra for PCF (BETA) has the following requirements:
 
-YOUR-PRODUCT-NAME has the following requirements:
-
-+ PREREQUISITE-1
-
-+ PREREQUISITE-2
-
-## <a id="limitations"></a>Limitations
-
-**List any known limitations.**
++ An existing, external DataStax Enterprise Cassandra installation reachable by Pivotal Cloud Foundry.
 
 ## <a id="feedback"></a>Feedback
 
-Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+Please provide any bugs, feature requests, or questions to
+the [Pivotal Cloud Foundry Feedback](mailto:pivotal-cf-feedback@pivotal.io) list
+or send an email to [Gilbert Lau](mailto:gilbert.lau@datastax.com).
 
-## <a id='license'></a>License
+## Further Reading
 
-**List any license information here.**
-
+* [Official DataStax Enterprise Cassandra Documentation](http://docs.datastax.com/en/datastax_enterprise/5.0/)

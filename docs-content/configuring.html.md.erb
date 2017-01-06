@@ -1,6 +1,6 @@
 ---
-title: DataStax Enterprise Cassandra (BETA) Configuration
-owner: Dublin Services
+title: Configuring DataStax Enterprise Cassandra for PCF (BETA)
+owner: Partners
 ---
 
 To configure Datastax Enterprise Cassandra, navigate to the tile in the Ops Manager Installation Dashboard and click the **Settings** tab.
@@ -10,7 +10,7 @@ You can configure following items:
 ## Service Settings
 
 Here you can change service name in CF CLI and ApsManager and also change service description
-![Image of OpsManager Cassandra Service Access Configuration](service-settings.png)
+![Image of OpsManager Cassandra Service Access Configuration](images/service-settings.png)
 
 ## Cassandra Cluster Settings
 
@@ -24,7 +24,7 @@ The following fields on the configuration page are mandatory:
 
 The admin credentials would be used for managing users in order to bind and unbind CF applications.
 
-![Image of OpsManager Cassandra Cluster Configuration](cluster-settings.png)
+![Image of OpsManager Cassandra Cluster Configuration](images/cluster-settings.png)
 
 ## Service plans
 
@@ -32,11 +32,11 @@ Tile requires you to set at least one plan. You have to set mandatory Name and D
 Optionally, a role can be configured for each plan. That role would be assigned to the bound application credentials.
 If unset, the credentials would not get any role assigned.
 
-![Image of OpsManager Cassandra Service plans Configuration](service-plans-settings.png)
+![Image of OpsManager Cassandra Service plans Configuration](images/service-plans-settings.png)
 
 ## Service Access
 
 By default all service plans for the service are private. You can check "Enable global access to plans of service DataStax Enterprise Cassandra (BETA) 
 Save"
 
-![Image of OpsManager Cassandra Service Access Configuration](service-access-settings.png)
+![Image of OpsManager Cassandra Service Access Configuration](images/service-access-settings.png)
