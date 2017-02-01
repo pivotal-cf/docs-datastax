@@ -1,38 +1,34 @@
 ---
-title: Using DataStax Enterprise Cassandra for PCF (BETA)
+title: Using DataStax Enterprise Cassandra for PCF (Beta)
 owner: Partners
 ---
 
-DataStax Enterprise Cassandra (BETA) for PCF can be used both via Pivotal Apps Manager and the CLI, both methods are outlined below. An example application has also been created to help application developers get started with DataStax Enterprise Cassandra (BETA) for PCF, and can be [downloaded here](https://github.com/pivotal-cf/cf-cassandra-example-app/archive/master.zip).
+You can create service instances of DataStax Enterprise Cassandra for PCF (Beta) and bind them to apps using either Apps Manager or the Cloud Foundry Command-Line Interface (cf CLI).
 
+Download an example app that uses DataStax Enterprise Cassandra for PCF (Beta) [here](https://github.com/pivotal-cf/cf-cassandra-example-app/archive/master.zip).
 
+## <a id="create"></a> Create a Service Instance
 
-<a id="create"></a>
-## Creating a DataStax Cassandra Service Plan
+The following procedures describe how to create a DataStax Cassandra service instance in Apps Manager and with the cf CLI.
 
-The following procedure describes how to create a DataStax Cassandra service instance in the Pivotal Cloud Foundry Elastic Runtime environment.
-Currently, the DataStax Enterprise Cassandra (BETA) provides only a single simple service plan.
+<p class="note"><strong>Note</strong>: The DataStax Enterprise Cassandra (beta) service currently offers only one service plan, <code>basic</code>.</p>
 
-### Using Pivotal Apps Manager
+### <a id="create-apps-man"></a> Pivotal Apps Manager
 
-1. From within Pivotal Apps Manager, select Marketplace from the left navigation menu under Spaces. The Services Marketplace displays.
-1. Select **DataStax Enterprise Cassandra (BETA)** from the displayed tiles and click to create a service instance.
-1. Click on the **Select this plan** button to select the **basic Service Plan**.
-1. In the Instance Name field, enter a name that will identify this specific DataStax Enterprise Cassandra (BETA) service instance.
-1. From the Add to Space drop-down list, select the space where you or other users will deploy the applications that will bind to the service.
-1. Click the **Add** button.
+1. From Apps Manager, select **Marketplace** from the left navigation menu under **Spaces**. This displays the Services Marketplace.
+1. Select **DataStax Enterprise Cassandra (Beta)** from the tiles.
+1. Click on the **Select this plan** button to select the **Basic Service Plan**.
+1. In the **Instance Name** field, enter a name that will identify this specific DataStax Enterprise Cassandra for PCF (Beta) service instance.
+1. From the **Add to Space** drop-down list, select the space where apps will bind to the service.
+1. Click the **Add** button to create the service instance.
 
-### Using the CLI
+### <a id="create-cli"></a> cf CLI
 
-1. Run the following command to view the available service plans.
+1. Run `cf marketplace` to view the available service plans. This should produce output like the following:
 
-    ```
+    <pre class="terminal">
     $ cf marketplace
-    ```
 
-    This should produce the output:
-
-    ```
     Getting services from marketplace in org system / space apps-manager as admin...
     OK
 
@@ -40,110 +36,82 @@ Currently, the DataStax Enterprise Cassandra (BETA) provides only a single simpl
     p-dse-cassandra-sb   basic          A service broker for DataStax Enterprise Cassandra.
 
     TIP:  Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
-    ```
+    </pre>
 
-1. Type the following command to create the service plan:
-
-    ```
-    $ cf create-service p-dse-cassandra-sb basic <service-instance-name>
-    ```
-    The service-instance-name is a descriptive name that you want to use for the service.
-
-    <br />For example
-
-    ```
+1. Run `cf create-service SERVICE-NAME SERVICE-PLAN SERVICE-INSTANCE-NAME` to create the service plan. `SERVICE-INSTANCE-NAME` can be any descriptive name you want to use for the service instance:
+    <pre class="terminal">
     $ cf create-service p-dse-cassandra-sb basic cassie
-    ```
+    </pre>
 
+## <a id="bind"></a>Bind an App to a Service Instance
 
+The following procedures describe how to bind a DataStax Enterprise Cassandra service instance to a PCF app via Pivotal Apps Manager or the cf CLI.
 
-<a id="bind"></a>
-## Binding an Application to the DataStax Enterprise Cassandra (BETA) Service
+### <a id="bind-apps-man"></a> Pivotal Apps Manager
 
-The following procedures describe how to bind a DataStax Enterprise Cassandra (BETA) service instance to your Pivotal Cloud Foundry application. This can be done via the Pivotal Apps Manager or Using the Pivotal Cloud Foundry CLI.
+1. In a space, select the app to bind to the service.
+1. Select the **Services** tab for the app. A page displays showing the service instances that are already bound to this app.
+1. Click **Bind a Service**. A dropdown appears with a list of available service instances.
+1. Select the DataStax Enterprise Cassandra service instance you [created](#create) in the previous section and click **Bind**.
+1. Use the cf CLI to start or restage your application.
 
-### Using Pivotal Apps Manager
+    <pre class="terminal">
+    $ cf restage cf-cassandra-example-app
+    </pre>
 
-1. Select the application that you wish to bind to the service. A page displays showing the already bound services and instances for this application.
-1. Click Bind. A list of available services displays.
-1. Click the Bind button for the DataStax Enterprise Cassandra (BETA) service you want to bind to this application.
-1. Using the Pivotal Cloud Foundry CLI, start or restage your application.
+### <a id="bind-cli"></a>cf CLI
 
-    ```
-    $ cf restage <application-name>
-    ```
+1. Run `cf services` to view running service instances. This should produce output like the following:
 
-### Using the CLI
-
-1. Run the following command to view running service instances.
-
-    ```
+    <pre class="terminal">
     $ cf services
-    ```
-    This should produce the output:
 
-    ```
     Getting services in org system / space apps-manager as admin...
     OK
 
     name                        service             plan        bound apps    last operation
     my-dse-cassandra-instance   p-dse-cassandra-sb  basic                     create succeeded
-    ```
+    </pre>
 
-1. Run the following command to bind the application to the service instance.
+1. Run cf bind-service `APP-NAME SERVICE-INSTANCE-NAME` to bind the application to the service instance.
 
-    ```
-    $ cf bind-service <application-name> <service-instance-name>
-    ```
+    <pre class="terminal">
+    $ cf bind-service cf-cassandra-example-app cassie
+    </pre>
 
-    For example:
+1. Restage your app.
 
-    ```
-    $ cf bind-service my-application cassie
-    ```
-1. Restage your application.
+    <pre class="terminal">
+    $ cf restage cf-cassandra-example-app
+    </pre>
 
-    ```
-    $ cf restage <application-name>
-    ```
+## <a id="delete"></a>Delete a Service Instance
 
-<a id="delete"></a>
-## Deleting a DataStax Enterprise Cassandra (BETA) Instance
+When you delete a DataStax Enterprise Cassandra service instance, the service broker automatically unbinds all apps that are bound to that service and removes from the Cassandra cluster any users created for binding apps.
 
-When you delete a DataStax Enterprise Cassandra (BETA) service instance, all applications that are bound to that service are automatically unbound and every user that was created for binding an application would be removed from the cassandra cluster.
+### <a id="delete-apps-man"></a> Pivotal Apps Manager
 
-### Using Pivotal Apps Manager
+1. From the **Services** tab for the space containing the instance, select the service instance.
+1. Open the **Settings** tab and click **Delete Service Instance**.
+1. You may need to restage or re-push any apps that used the service for the changes to take effect.
 
-1. Locate the row under Services that contains the service instance you want to delete and click Delete.
-1. If you had applications that were bound to this service, you may need to restage or re-push your application for the application changes to take effect.
+    <pre class="terminal">$ cf restage cf-cassandra-example-app
+    </pre>
 
-    ```
-    $ cf restage <application-name>
-    ```
+### <a id="delete-cli"></a> cf CLI
 
+1. Run `cf delete-service SERVICE-INSTANCE-NAME` to delete the service instance. Enter `y` when prompted. This produces output like the following:
 
-### Using the CLI
+    <pre class="terminal">
+    $ cf delete-service cassie
 
-1. Run the following command.
-
-    ```
-    $ cf delete-service <service-instance-name>
-    ```
-
-    The service-instance-name is that of the service instance that you would like to delete. Enter 'y' when prompted.
-
-    <br />For example:
-
-    ```
-    $ cf delete-service my-dse-cassandra-instance
-
-    Really delete the service my-dse-cassandra-instance?> y
-    Deleting service my-dse-cassandra-instance in org system / space apps-manager as admin...
+    Really delete the service cassie?> y
+    Deleting service cassie in org system / space apps-manager as admin...
     OK
-    ```
+    </pre>
 
-1. If you had applications that were bound to this service, you may need to restage or re-push your application for the application changes to take effect.
+1. You may need to restage or re-push any apps that used the service for the changes to take effect.
 
-    ```
-    $ cf restage <application-name>
-    ```
+    <pre class="terminal">
+    $ cf restage cf-cassandra-example-app
+    </pre>
