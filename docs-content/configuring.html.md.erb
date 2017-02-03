@@ -5,7 +5,9 @@ owner: Partners
 
 To configure DataStax Enterprise Cassandra for PCF (Beta), navigate to the tile in the Ops Manager Installation Dashboard, click the tile to open its configuration tabs, and select the **Settings** tab.
 
-The **Settings** tab includes the following four product-specific panes:
+The **Settings** tab includes the standard configuration panes **Assign AZs and Networks**, **Errands**, **Resource Config**, and **Stemcell**, shared by all Ops Manager tiles. 
+
+The **Settings** tab also contains the following four product-specific panes:
 
 ## <a id='service'></a>Service Settings
 
@@ -38,7 +40,7 @@ PCF uses the admin credentials to let users bind and unbind CF applications and 
 
 In this pane you must define at least one plan, and you can define more. Each plan must have a **Plan Name** and **Plan Description**.
 
-You can optionally set a **Cassandra Role** for each plan. When an app accesses DataStax Enterprise Cassandra through an instance of this plan, this is the Cassandra role that defines its permissions. If unset, the admin credentials have no Cassandra role assigned.
+You can optionally set a **Cassandra Role** for each plan. When an app accesses DataStax Enterprise Cassandra through an instance of this plan, this is the Cassandra role that defines its permissions. If unset, the plan instance uses the admin credentials and has no Cassandra role assigned.
 
 ## <a id='access'></a>Service Access
 
