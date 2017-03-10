@@ -57,7 +57,7 @@ The following procedures describe how to bind a DataStax Enterprise Cassandra se
 1. Use the cf CLI to start or restage your application.
 
     <pre class="terminal">
-    $ cf restage cf-cassandra-example-app
+    $ cf restage spring-music
     </pre>
 
 ### <a id="bind-cli"></a>cf CLI
@@ -71,19 +71,19 @@ The following procedures describe how to bind a DataStax Enterprise Cassandra se
     OK
 
     name                        service             plan        bound apps    last operation
-    my-dse-cassandra-instance   p-dse-cassandra-sb  basic                     create succeeded
+    cassie                      p-dse-cassandra-sb  basic                     create succeeded
     </pre>
 
 1. Run cf bind-service `APP-NAME SERVICE-INSTANCE-NAME` to bind the application to the service instance.
 
     <pre class="terminal">
-    $ cf bind-service cf-cassandra-example-app cassie
+    $ cf bind-service spring-music cassie
     </pre>
 
 1. Restage your app.
 
     <pre class="terminal">
-    $ cf restage cf-cassandra-example-app
+    $ cf restage spring-music
     </pre>
 
 ## <a id="delete"></a>Delete a Service Instance
@@ -96,7 +96,7 @@ When you delete a DataStax Enterprise Cassandra service instance, the service br
 1. Open the **Settings** tab and click **Delete Service Instance**.
 1. You may need to restage or re-push any apps that used the service for the changes to take effect.
 
-    <pre class="terminal">$ cf restage cf-cassandra-example-app
+    <pre class="terminal">$ cf restage spring-music
     </pre>
 
 ### <a id="delete-cli"></a> cf CLI
@@ -114,5 +114,5 @@ When you delete a DataStax Enterprise Cassandra service instance, the service br
 1. You may need to restage or re-push any apps that used the service for the changes to take effect.
 
     <pre class="terminal">
-    $ cf restage cf-cassandra-example-app
+    $ cf restage spring-music
     </pre>
