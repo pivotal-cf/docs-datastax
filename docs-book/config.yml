@@ -16,8 +16,8 @@ public_host: hello
 sections:
   - repository:
       name: docs-content
-    directory: datastax
-    subnav_template: datastax_subnav.erb       
+    directory: datastax-service-broker
+    subnav_template: datastax-service-broker_subnav.erb       
 
 template_variables:                             # optional
 
