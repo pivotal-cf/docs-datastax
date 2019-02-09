@@ -3,6 +3,11 @@ title: DataStax Enterprise Service Broker for PCF (Beta)
 owner: Partners
 ---
 
+<p class="note warning"><strong> WARNING:</strong>
+This tile requires a Trusty stemcell.
+The end of life date for Ubuntu Trusty is April 2019.
+If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
+
 <style>
     .note.warning {
         background-color: #fdd;
@@ -61,6 +66,10 @@ The following table provides version and version-support information about DataS
     <tr>
         <td>Go buildpack version(s)</td>
         <td>v1.7.9 and later</td>
+    </tr>
+    <tr>
+        <td>BOSH stemcell version</td>
+        <td>Ubuntu Trusty</td>
     </tr>
     <tr>
         <td>IaaS support</td>
