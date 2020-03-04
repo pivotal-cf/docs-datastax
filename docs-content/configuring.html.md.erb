@@ -1,9 +1,9 @@
 ---
-title: Configuring DataStax Enterprise Service Broker for Pivotal Platform
+title: Configuring DataStax Enterprise Service Broker for VMware Tanzu
 owner: Partners
 ---
 
-To configure DataStax Enterprise Service Broker for Pivotal Platform, navigate to the tile in the Ops Manager Installation Dashboard, click the tile to open its configuration tabs, and select the **Settings** tab.
+To configure DataStax Enterprise Service Broker for VMware Tanzu, navigate to the tile in the Ops Manager Installation Dashboard, click the tile to open its configuration tabs, and select the **Settings** tab.
 
 The **Settings** tab includes the standard configuration panes **Assign AZs and Networks**, **Errands**, **Resource Config**, and **Stemcell**, shared by all Ops Manager tiles. 
 
@@ -25,14 +25,14 @@ This pane includes the following fields:
 
 ![Image of OpsManager Cassandra Cluster Configuration](images/cluster-settings.png)
 
-Pivotal Platform needs these fields from the external DataStax Enterprise cluster, to allow access:
+VMware Tanzu needs these fields from the external DataStax Enterprise cluster, to allow access:
 
 * IP Address
 * Port (default: `9042`)
 * Admin username
 * Admin password
 
-Pivotal Platform uses the admin credentials to let users bind and unbind CF applications and manage users in DataStax Enterprise.
+VMware Tanzu uses the admin credentials to let users bind and unbind CF applications and manage users in DataStax Enterprise.
 
 ## <a id='plan'></a>Service Plans
 
@@ -46,6 +46,6 @@ You can optionally set a **Cassandra Role** for each plan. When an app accesses 
 
 By default, all service plans for the DataStax Enterprise service are private.
 
-To make the service plans public, publishing them to the Services Marketplace, select **Enable global access to plans of service DataStax Cassandra Service Broker for Pivotal Platform**.
+To make the service plans public, publishing them to the Services Marketplace, select **Enable global access to plans of service DataStax Cassandra Service Broker for VMware Tanzu**.
 
 ![Image of OpsManager Cassandra Service Access Configuration](images/service-access-settings.png)
